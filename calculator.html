@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="utf-8">
+  <title>Calculator</title>
+</head>
+<body>
+  <center>
+    <h1>Calculator</h1>
+
+    
+    <input id="display" readonly>
+
+    <br><br>
+
+    
+    <button onclick="add('1')">1</button>
+    <button onclick="add('2')">2</button>
+    <button onclick="add('3')">3</button>
+    <br>
+    <button onclick="add('4')">4</button>
+    <button onclick="add('5')">5</button>
+    <button onclick="add('6')">6</button>
+    <br>
+    <button onclick="add('7')">7</button>
+    <button onclick="add('8')">8</button>
+    <button onclick="add('9')">9</button>
+    <br>
+    <button onclick="add('0')">0</button>
+
+   
+    <button onclick="add('+')">+</button>
+    <button onclick="add('-')">-</button>
+    <button onclick="add('*')">*</button>
+    <button onclick="add('/')">/</button>
+
+    <br><br>
+
+    
+    <button onclick="calculate()">=</button>
+    <button onclick="clearDisplay()">C</button>
+
+    
+    <div id="video"></div>
+  </center>
+
+  <script>
+    const display = document.getElementById("display");
+    const video = document.getElementById("video");
+
+    function add(val) {
+      display.value += val;
+    }
+
+    function clearDisplay() {
+      display.value = "";
+      video.innerHTML = ""; 
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value); 
+        video.innerHTML = `
+          <h2>ANSWER</h2>
+          <iframe width="300" height="200" 
+            src="mahirap.mp4" 
+            frameborder="0" allowfullscreen>
+          </iframe>`;
+      } catch {
+        display.value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>
